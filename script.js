@@ -5,11 +5,11 @@ if (isNaN(chilometri) || isNaN(eta)){
   document.getElementById("biglietto").innerHTML = "Impossibile visualizzare biglietto. Non hai inserito dei numeri. Riprova";
 } else {
   if (eta <= 18){
-    document.getElementById("biglietto").innerHTML = "Il costo del tuo biglietto è " + (Math.floor((chilometri * costo) * 0.8)) + " euro";
+    document.getElementById("biglietto").innerHTML = "Il costo del tuo biglietto è " + (((chilometri * costo) * 0.8).toFixed(2)) + " euro";
   } else if (eta >= 65){
-    document.getElementById("biglietto").innerHTML = "Il costo del tuo biglietto è " + (Math.floor((chilometri * costo) * 0.6)) + " euro";
+    document.getElementById("biglietto").innerHTML = "Il costo del tuo biglietto è " + (((chilometri * costo) * 0.6).toFixed(2)) + " euro";
   }
   else{
-    document.getElementById("biglietto").innerHTML = "Il costo del tuo biglietto è " + (Math.floor(chilometri * costo)) + " euro";
+    document.getElementById("biglietto").innerHTML = "Il costo del tuo biglietto è " + ((chilometri * costo).toFixed(2)) + " euro";
   }
 }
