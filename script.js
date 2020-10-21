@@ -12,9 +12,9 @@ bottone.addEventListener("click", function(){
 
 document.getElementById("name").innerHTML = nameSurEl;
 //carrozze e codice
-var carrozza = Math.floor(Math.random() * 10 + 1);
+var carrozza = Math.floor(Math.random() * 10) + 1;
 document.getElementById("coach").innerHTML = carrozza;
-var codice = Math.floor(Math.random()* 10000 + 90000);
+var codice = Math.floor(Math.random()* 999999) + 90000;
 document.getElementById("code").innerHTML = codice;
 //calcolo prezzi
 var prezzoPieno = chilometri * costo;
