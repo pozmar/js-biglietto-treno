@@ -1,18 +1,39 @@
-//var chilometri = parseInt(prompt("Quanti chilometri vuoi percorrere?"));
-//var eta = parseInt(prompt("Quanti anni hai?"));
+//variabili base
 var costo = 0.21;
-var prezzoPieno = chilometri * costo;
 var scontoUnder = 20;
 var scontoOver = 40;
-if (isNaN(chilometri) || isNaN(eta)){
-  document.getElementById("biglietto").innerHTML = "Impossibile visualizzare biglietto. Non hai inserito dei numeri. Riprova";
+//bottone
+var bottone = document.getElementById("generate");
+//funzione bottone
+bottone.addEventListener("click", function(){
+  var chilometri = document.getElementById("percorso").value;
+  var nameSurEl = document.getElementById("nameSur").value;
+  var discountEl = document.getElementById("sconto").value;
+
+document.getElementById("name").innerHTML = nameSurEl;
+//carrozze e codice
+var carrozza = Math.floor(Math.random() * 10 + 1);
+document.getElementById("coach").innerHTML = carrozza;
+var codice = Math.floor(Math.random()* 10000 + 90000);
+document.getElementById("code").innerHTML = codice;
+//calcolo prezzi
+var prezzoPieno = chilometri * costo;
+
+if (isNaN(chilometri)){
+  alert("Impossibile visualizzare biglietto. Non hai inserito dei numeri. Riprova");
 } else {
-  if (eta <= 18){
-    document.getElementById("biglietto").innerHTML = "Il costo del tuo biglietto è " + (prezzoPieno - (prezzoPieno * scontoUnder) / 100).toFixed(2) + " euro";
-  } else if (eta >= 65){
-    document.getElementById("biglietto").innerHTML = "Il costo del tuo biglietto è " + (prezzoPieno - (prezzoPieno * scontoOver) / 100).toFixed(2) + " euro";
+  if (discountEl == "under"){
+    document.getElementById("ticket").innerHTML = (prezzoPieno - (prezzoPieno * scontoUnder) / 100).toFixed(2) + "&euro;";
+    document.getElementById("discount").innerHTML = "Sconto minorenne";
+  } else if (discountEl == "over"){
+    document.getElementById("ticket").innerHTML = (prezzoPieno - (prezzoPieno * scontoOver) / 100).toFixed(2) + "&euro;";
+    document.getElementById("discount").innerHTML = "Sconto over";
   }
   else{
-    document.getElementById("biglietto").innerHTML = "Il costo del tuo biglietto è " + (prezzoPieno).toFixed(2) + " euro";
+    //document.getElementById("tabella").style.display = "block";
+    document.getElementById("ticket").innerHTML = prezzoPieno.toFixed(2) + "&euro;";
+    document.getElementById("discount").innerHTML = "Nessuno sconto applicato";
   }
+
 }
+})

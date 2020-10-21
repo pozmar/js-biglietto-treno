@@ -31,7 +31,9 @@ body{
 .tabella{
   background-color: white;
   border-radius: 10px;
-  display: none;
+  display: block;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
 }
 .tabella table{
   table-layout: fixed;
@@ -42,5 +44,11 @@ body{
 }
 table .passeggero{
   background-color: grey;
-
+}
+table td:first-child{
+  background-color: grey;
+}
+table th, table td{
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
