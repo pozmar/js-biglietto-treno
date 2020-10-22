@@ -2,11 +2,14 @@
 var costo = 0.21;
 var scontoUnder = 20;
 var scontoOver = 40;
+var chilometri = document.getElementById("percorso");
+var nameSurEl = document.getElementById("nameSur");
 //bottone
 var bottone = document.getElementById("generate");
 //funzione bottone
 bottone.addEventListener("click", function(){
   var chilometri = document.getElementById("percorso").value;
+
   var nameSurEl = document.getElementById("nameSur").value;
   var discountEl = document.getElementById("sconto").value;
 
@@ -36,4 +39,11 @@ if (isNaN(chilometri)){
   }
 
 }
+document.getElementById("name").style.fontWeight = "bold";
+
+});
+document.getElementById("clear").addEventListener("click", function(){
+
+  nameSurEl.value = "";
+  chilometri.value = "";
 })
